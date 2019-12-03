@@ -3,6 +3,7 @@
 ## A script to chain catkin workspaces `setup-opt-testrobotpkgarg.sh`
 
 To add a workspace:
+
 `./setup-opt-testrobotpkgarg.sh -p /opt/openrobots`
 
 This script updates the following environment variables:
@@ -20,5 +21,6 @@ The script install-sot-pattern-generator.sh does the following step:
 To build your workspace:
 
 `cd ~/devel-src/sot_pg_ws`
+
 `catkin build`
 
