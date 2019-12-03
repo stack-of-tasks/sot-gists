@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Robotpkg Helpers dependencies
-sudo python3-notify2 python3-lark-parser
+sudo apt install python3-notify2 python3-lark-parser
 
 # Super build dependencies
-sudo apt-get install python3-vcstool python-catkin-tools 
+sudo apt install python3-vcstool python-catkin-tools 
 
 # Read user input for path integration
 echo "Path for integration:"
