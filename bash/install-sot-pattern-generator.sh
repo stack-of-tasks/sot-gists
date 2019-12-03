@@ -14,8 +14,10 @@ read path_for_integration
 echo '{"arch_dist_files": "arch_distfiles",
  "archives": "archives",
  "ramfs_mnt_pt": "pal_env_for_super_build_zhang", 
- "repo_robotpkg_wip": "git://git.openrobots.org/robots/robotpkg/robotpkg-wip", 
- "repo_robotpkg_main": "git://git.openrobots.org/robots/robotpkg.git",
+ "repo_robotpkg_wip": "git@github.com:olivier-stasse/robotpkg-wip.git",
+ "repo_robotpkg_wip_branch": "pal_env", 
+ "repo_robotpkg_main": "git@github.com:olivier-stasse/robotpkg.git",
+ "repo_robotpkg_main_branch": "pal_env",  
  "robotpkg_mng_root": "'$path_for_integration'", 
  "rc_pkgs":
  {},
