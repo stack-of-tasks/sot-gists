@@ -1,5 +1,24 @@
 #!/bin/bash
 
+path_for_integration="/integration_tests"
+
+usage()
+{
+    echo "usage: $0 -p /integration_tests [-h]"
+}
+
+# Dealing with parameters
+while [ "$1" != "" ]; do
+    case $1 in
+        -p | --path-integration )      shift
+                                path_for_integration=$1
+                                ;;
+        * )                     usage
+                                exit 1
+    esac
+    shift
+done
+
 # Robotpkg Helpers dependencies
 sudo apt install python3-notify2 python3-lark-parser
 
@@ -8,7 +27,7 @@ sudo apt install python3-vcstool python-catkin-tools
 
 # Read user input for path integration
 echo "Path for integration:"
-read path_for_integration
+echo $path_for_integration
 
 # Create the json file
 echo '{"arch_dist_files": "arch_distfiles",
@@ -45,7 +64,11 @@ export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$ROBOTPKG_BASE
 mkdir -p $HOME/devel-src/sot_pg_ws/src
 cd $HOME/devel-src/sot_pg_ws
 catkin init -w $HOME/devel-src/sot_pg_ws
-catkin config --install -w $HOME/devel-src/sot_pg_ws
+local_cmake_args="--cmake-args -DCMAKE_BUILD_TYPE=DEBUG "
+local_cmake_args="${local_cmake_args} -DPYTHON_STANDARD_LAYOUT:BOOL=ON "
+local_cmake_args="${local_cmake_args} -DPYTHON_DEB_LAYOUT:BOOL=OFF"
+local_cmake_args="${local_cmake_args} -DSETUPTOOLS_DEB_LAYOUT:BOOL=OFF"
+catkin config --install -w $HOME/devel-src/sot_pg_ws ${local_cmake_args}
 echo 'repositories:
   src/dynamic-graph:
     type: git
