@@ -32,17 +32,23 @@ You need to create two aliases:
 ## Starting the simulation to make the robot walks.
 
 For each terminal type the following:
+
 `pal_env`
+
 `sot_pg_ws_env`
 
 In one terminal start the TALOS simulation:
+
 `roslaunch talos_data talos_gazebo.launch`
 
 In another terminal start the SoT:
+
 `roslaunch roscontrol_sot_talos sot_talos_controller_gazebo.launch`
 
 Finally in a third terminal to start the walking:
+
 `cd /home/user/devel-src/sot_pg_ws/src/sot-talos-balance/python/sot_talos_balance/test`
+
 `python ./test_dcmZmpControl_file.py TestKajita2003StraightWalking64/10cm`
 
 ## Install two catkin workspace for Bionic SoT Talos `install-pal-talos-melodic.bash`
